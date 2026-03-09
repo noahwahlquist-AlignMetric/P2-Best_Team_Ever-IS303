@@ -94,6 +94,46 @@ def Calculate_Scores() :
         print(f"Wins: {iWinCount} | Losses: {iLossCount}")
         print()
 
+# Allows user to search for a specific match
+def Search_Match():
+
+    # Checks if teams or scores were created
+    if len(lstTeams) == 0 or oHomeTeam is None or len(oHomeTeam.scores) == 0:
+        print("Please calculate the season scores first.\n")
+        return
+
+    # Asks for user to input opponent team
+    sTeam = input("Enter the opponent team name to search: ").title()
+
+    # Loop through the lists to check for opposing team name and display score
+    found = False
+    for i, team in enumerate(lstTeams):
+        if team.team_name == sTeam:
+            print(f"{oHomeTeam.team_name}: {oHomeTeam.scores[i]} | {team.team_name}: {team.score}\n")
+            found = True
+            break
+
+    # Display for if team name was not found
+    if not found:
+        print("Team not found.\n")
+
+# Function to display all games throughout the season
+def Display_All_Games():
+
+    # Check if teams or scores have been generated yet
+    if len(lstTeams) == 0 or oHomeTeam is None or len(oHomeTeam.scores) == 0:
+        print("No games have been played yet.\n")
+        return
+    
+    # Display title for the season results
+    print("Season Match Results:\n")
+
+    # Loop through all away teams and display the score for each game
+    for i, team in enumerate(lstTeams):
+        print(f"{oHomeTeam.team_name}: {oHomeTeam.scores[i]} | {team.team_name}: {team.score}")
+
+    print()
+
 def Display_Menu() : 
     print("--- Soccer Game Menu --- ")
     print("1 - Enter the team names")
@@ -132,7 +172,11 @@ def Run_Program() :
         elif iChoice == 2 : 
             Calculate_Scores()
 
-        
+        elif iChoice == 3 :
+            Search_Match()
+
+        elif iChoice == 4 :
+            Display_All_Games()
 
         # Clear all of the lists to set up for a new season
         elif iChoice == 5 : 
