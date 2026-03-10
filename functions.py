@@ -142,6 +142,7 @@ def Display_Menu() :
     print("4 - Display the full season's match details")
     print("5 - Start a new season")
     print("6 - Quit program")
+    print()
 
     bContinue = True 
     while bContinue == True : 
