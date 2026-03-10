@@ -59,7 +59,7 @@ def Calculate_Scores() :
         print("Please enter the team names before trying to calculate scores")
     else : 
         # Clear the lists in case they run option 2 twice without choosing to start a new season
-        # as this will run it with the same teams as before but won't make a second set of scores in each list
+        # as this will run it with the same teams as before, but won't make a second set of scores in each list
         lstWon.clear()
         lstLost.clear()
         if oHomeTeam is not None : 
@@ -69,7 +69,7 @@ def Calculate_Scores() :
         iWinCount = 0
         iLossCount = 0
 
-        # Create loop for all games
+        # Create a loop for all games
         for team in lstTeams :
             iHomeTeamScore = r.randrange(0, 4)
             team.score = r.randrange(0, 4)
@@ -102,7 +102,7 @@ def Search_Match():
         print("Please calculate the season scores first.\n")
         return
 
-    # Asks for user to input opponent team
+    # Asks for the user to input the opponent team
     sTeam = input("Enter the opponent team name to search: ").title()
 
     # Loop through the lists to check for opposing team name and display score
