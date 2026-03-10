@@ -100,22 +100,20 @@ def Search_Match():
     # Checks if teams or scores were created
     if len(lstTeams) == 0 or oHomeTeam is None or len(oHomeTeam.scores) == 0:
         print("Please calculate the season scores first.\n")
-        return
-
-    # Asks for the user to input the opponent team
-    sTeam = input("Enter the opponent team name to search: ").title()
-
-    # Loop through the lists to check for opposing team name and display score
-    found = False
-    for i, team in enumerate(lstTeams):
-        if team.team_name == sTeam:
-            print(f"{oHomeTeam.team_name}: {oHomeTeam.scores[i]} | {team.team_name}: {team.score}\n")
-            found = True
-            break
-
-    # Display for if team name was not found
-    if not found:
-        print("Team not found.\n")
+    else : 
+        # Ask for the user to input the opponent team
+        sOppTeam = input("Enter the opponent team name to search: ").title()
+    
+        # Loop through the lists to check for opposing team name and display score
+        found = False
+        for i, team in enumerate(lstTeams):
+            if team.team_name == sOppTeam:
+                print(f"{oHomeTeam.team_name}: {oHomeTeam.scores[i]} | {team.team_name}: {team.score}\n")
+                found = True
+                break
+        # Display for if team name was not found
+        if not found:
+            print("Team not found.\n")
 
 # Function to display all games throughout the season
 def Display_All_Games():
